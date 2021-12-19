@@ -1,0 +1,231 @@
+html,
+body {
+  height: 100%;
+  background: rgb(255, 255, 255);
+}
+body {
+  overflow: hidden;
+}
+.scroll-animations-example > .scrollsection {
+  padding: 10vh 10vh 10vh 10vmax;
+  min-width: 550vh;
+  background-image: url(../doc/images/old-town-water-canal-panorama-260nw-1700726887.jpg),
+    url(../doc/images/old-town-water-canal-panorama-26.jpg);
+  background-position: left, right;
+  background-size: contain;
+  background-size: cover 100vw 100vh;
+  background-repeat: no-repeat;
+}
+.scroll-animations-example > .scrollsection > .item {
+  display: inline-block;
+  position: relative;
+  margin: 0 -30vh 0 3vh;
+}
+.scroll-animations-example > .scrollsection > .item::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+.scroll-animations-example > .scrollsection > .item.-big {
+  height: 80vh;
+  width: 60vh;
+}
+.scroll-animations-example > .scrollsection > .item.-big.-horizontal {
+  height: 60vh;
+  width: 80vh;
+}
+.scroll-animations-example > .scrollsection > .item.-normal {
+  height: 60vh;
+  width: 45vh;
+  z-index: 1;
+}
+.scroll-animations-example > .scrollsection > .item.-normal.-horizontal {
+  height: 45vh;
+  width: 60vh;
+}
+.scroll-animations-example > .scrollsection > .item.-normal:nth-of-type(3n) {
+  bottom: 5vh;
+}
+.scroll-animations-example > .scrollsection > .item.-normal:nth-of-type(4n) {
+  bottom: -5vh;
+}
+.scroll-animations-example > .scrollsection > .item.-small {
+  height: 40vh;
+  width: 30vh;
+  z-index: 2;
+}
+.scroll-animations-example > .scrollsection > .item.-small.-horizontal {
+  height: 30vh;
+  width: 40vh;
+}
+.scroll-animations-example > .scrollsection > .item.-small:nth-of-type(3n) {
+  bottom: 13vh;
+}
+.scroll-animations-example > .scrollsection > .item.-small:nth-of-type(4n) {
+  bottom: -13vh;
+}
+.scroll-animations-example > .scrollsection > .item > .image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(0.5px);
+  opacity: 0.9;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(0) translateY(0) scale(1);
+  transition: filter 0.3s ease, opacity 1s ease, transform 1s ease;
+}
+.scroll-animations-example > .scrollsection > .item:nth-of-type(4n) > .image {
+  transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+  transition-delay: 0;
+}
+.scroll-animations-example
+  > .scrollsection
+  > .item:nth-of-type(4n - 1)
+  > .image {
+  transform: translateX(30vh) translateY(30vh) scale(0.8);
+  transition-delay: 0.05s;
+}
+.scroll-animations-example
+  > .scrollsection
+  > .item:nth-of-type(4n - 2)
+  > .image {
+  transform: translateX(-30vh) translateY(30vh) scale(0.8);
+  transition-delay: 0.1s;
+}
+.scroll-animations-example
+  > .scrollsection
+  > .item:nth-of-type(4n - 3)
+  > .image {
+  transform: translateX(-30vh) translateY(-30vh) scale(0.8);
+  transition-delay: 0.15s;
+}
+.scroll-animations-example > .scrollsection > .item > .image.-active {
+  transform: translateX(0) translateY(0) scale(1);
+  opacity: 0.8;
+  pointer-events: auto;
+  transition: filter 0.3s ease, opacity 1s ease, transform 1s ease;
+}
+.scroll-animations-example > .scrollsection > .item > .image.-clicked {
+  transform: translateX(0) translateY(0) scale(5);
+  opacity: 0;
+  pointer-events: auto;
+  transition: filter 0.3s ease, opacity 1s ease, transform 1s ease;
+}
+.scroll-animations-example > .scrollsection > .item > .image.-active:hover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: blur(0);
+  opacity: 1;
+  cursor: pointer;
+}
+
+a {
+  font-size: 2rem;
+}
+/* parallax */
+#denver-parallax {
+  position: relative;
+  z-index: -1;
+}
+.parallax {
+  perspective: 1px;
+  perspective-origin: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 0;
+  height: 100vh;
+}
+
+.parallax .group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+.parallax .layer {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
+#city1 {
+  fill: #111115;
+  transform: translateZ(0.25px) scale(0.75) translateY(-1vh);
+}
+
+#city2 {
+  fill: #12161e;
+  transform: translateZ(0px) scale(1) translateY(-1vh);
+}
+
+#city3 {
+  fill: #19202f;
+  transform: translateZ(-0.25px) scale(1.25) translateY(-1vh);
+}
+
+#city4 {
+  fill: #222032;
+  transform: translateZ(-0.5px) scale(1.5) translateY(-1vh);
+}
+
+#city5 {
+  fill: #15172a;
+  transform: translateZ(-0.75px) scale(1.75) translateY(-1vh);
+}
+
+#mountain1 {
+  fill: #202a5c;
+  transform: translateZ(-2.25px) scale(3.25) translateY(-1vh);
+}
+
+#mountain2 {
+  fill: #4a4d82;
+  transform: translateZ(-2.5px) scale(3.5) translateY(-1vh);
+}
+
+#mountain3 {
+  fill: #5f5d99;
+  transform: translateZ(-3px) scale(4) translateY(-10vh);
+  height: 50vh;
+}
+
+#mountain4 {
+  fill: #8a7d9e;
+  transform: translateZ(-3.5px) scale(4.5) translateY(-20vh);
+  height: 30vh;
+}
+
+#sun {
+  fill: #ff7e00;
+  transform: translateZ(-6px) scale(7) translateY(-25vh);
+  height: 25vh;
+}
+
+.city2-front {
+  background: #12161e;
+  width: 100vw;
+  height: 30vh;
+  position: relative;
+  margin-top: -5px;
+}
+
+.city-front {
+  position: relative;
+  margin-top: -5px;
+  background-color: #111115;
+  width: 100vw;
+  height: 125vh;
+}
+
+.site_name {
+  color: #fff;
+  display: inline-block;
+  margin: 0 0 0 20px;
+}
